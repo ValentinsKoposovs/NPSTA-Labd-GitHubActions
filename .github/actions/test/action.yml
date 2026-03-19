@@ -1,0 +1,26 @@
+name: 'Test Application/service API tests'
+description: 'Test python API tests'
+inputs:
+  environment:
+    description: 'environment where to run python API tests'
+    required: true
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v6
+      with:
+        repository: 'https://github.com/mtararujs/course-js-api-framework.git'
+        clean: 'false'
+        path: 'e2e-api-tests'
+    - run: echo "Testing Python Application service has started on ${{inputs.environment}} environment.."
+      shell: powershell
+    - name: Install all dependencies
+      working-directory: ./e2e-api-tests
+      run: npm install
+      shell: powershell
+    - name: Running API tests
+      working-directory: ./e2e-api-tests
+      shell: cmd
+      run: npm run greetings greetings_${{inputs.environment}}
+    - run: echo "Testing Python Application service finished"
+      shell: powershell
