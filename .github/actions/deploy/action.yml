@@ -13,7 +13,7 @@ runs:
     - uses: actions/checkout@v6
       with:
         repository: 'mtararujs/python-greetings'
-        clean: false
+        clean: 'false'
         path: 'mydeploy'
     - run: echo "Deployment to ${{inputs.environment}} environment has started.."
       shell: powershell
