@@ -9,18 +9,17 @@ runs:
   steps:
     - uses: actions/checkout@v6
       with:
-        set-safe-directory: 'false'
         repository: 'mtararujs/course-js-api-framework'
         clean: 'false'
-        path: 'mybuild'
+        path: 'mytests'
     - run: echo "Testing Python Application service has started on ${{inputs.environment}} environment.."
       shell: powershell
     - name: Install all dependencies
-      working-directory: ./mybuild
+      working-directory: ./mytests
       run: npm install
       shell: powershell
     - name: Running API tests
-      working-directory: ./mybuild
+      working-directory: ./mytests
       shell: cmd
       run: npm run greetings greetings_${{inputs.environment}}
     - run: echo "Testing Python Application service finished"
