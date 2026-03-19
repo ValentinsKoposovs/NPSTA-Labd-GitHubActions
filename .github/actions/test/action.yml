@@ -12,15 +12,15 @@ runs:
         set-safe-directory: 'false'
         repository: 'mtararujs/course-js-api-framework'
         clean: 'false'
-        path: 'e2e-api-tests'
+        path: 'mybuild'
     - run: echo "Testing Python Application service has started on ${{inputs.environment}} environment.."
       shell: powershell
     - name: Install all dependencies
-      working-directory: ./e2e-api-tests
+      working-directory: ./mybuild
       run: npm install
       shell: powershell
     - name: Running API tests
-      working-directory: ./e2e-api-tests
+      working-directory: ./mybuild
       shell: cmd
       run: npm run greetings greetings_${{inputs.environment}}
     - run: echo "Testing Python Application service finished"
