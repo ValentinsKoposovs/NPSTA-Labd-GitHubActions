@@ -5,7 +5,7 @@ runs:
   steps:
     - uses: actions/checkout@v6
       with:
-        repository: 'mtararujs/python-greetings.git'
+        repository: 'mtararujs/python-greetings'
         clean: 'false'
         path: 'mybuild'
     - run: echo "Installing all necessary node dependencies.."
