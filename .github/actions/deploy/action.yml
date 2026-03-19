@@ -14,16 +14,16 @@ runs:
       with:
         repository: 'mtararujs/python-greetings'
         clean: 'false'
-        path: 'mydeploy'
+        path: 'C:/actions-runner2/persistent/mybuild'
     - run: echo "Deployment to ${{inputs.environment}} environment has started.."
       shell: powershell
     - name: Cleanup of old service
       shell: cmd
       run: pm2 delete greetings-app-${{inputs.environment}} || exit 0
-      working-directory: ./mydeploy
+      working-directory: 'C:/actions-runner2/persistent/mybuild'
     - name: Running service
       shell: cmd
       run: pm2 start app.py --name greetings-app-${{inputs.environment}} --interpreter python -- --port ${{inputs.port}}
-      working-directory: ./mydeploy
+      working-directory: 'C:/actions-runner2/persistent/mybuild'
     - run: echo "Deployment to ${{inputs.environment}} environment has finished"
       shell: powershell

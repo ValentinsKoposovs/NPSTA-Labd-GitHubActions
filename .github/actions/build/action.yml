@@ -6,13 +6,13 @@ runs:
     - uses: actions/checkout@v6
       with:
         repository: 'mtararujs/python-greetings'
-        clean: false
-        path: 'mybuild'
+        clean: 'false'
+        path: 'C:/actions-runner2/persistent/mybuild'
     - run: echo "Installing all necessary node dependencies.."
       shell: powershell
     - run: python -m venv venv
       shell: cmd
-      working-directory: ./mybuild
+      working-directory: 'C:/actions-runner2/persistent/mybuild'
     - run: venv/Scripts/activate
       shell: cmd
       working-directory: ./mybuild
