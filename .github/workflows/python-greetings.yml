@@ -13,8 +13,6 @@ jobs:
         runs-on: self-hosted
         steps:
           - uses: actions/checkout@v6
-            with:
-              path: 'mybuild'
           - uses: ./.github/actions/build
     deploy-to-dev:
         runs-on: self-hosted
