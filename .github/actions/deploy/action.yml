@@ -19,11 +19,11 @@ runs:
       shell: powershell
     - name: Cleanup of old service
       shell: cmd
-      run: pm2 delete greetings-app-${{inputs.environment}} || exit 0
+      run: pm2 delete "greetings-app-${{inputs.environment}}" || exit 0
       working-directory: ./mybuild
     - name: Running service
       shell: cmd
-      run: pm2 start app.py --name greetings-app-${{inputs.environment}} --interpreter python -- --port ${{inputs.port}}
+      run: pm2 start app.py --name "greetings-app-${{inputs.environment}}" --interpreter python -- --port ${{inputs.port}}
       working-directory: ./mybuild
     - run: echo "Deployment to ${{inputs.environment}} environment has finished"
       shell: powershell
